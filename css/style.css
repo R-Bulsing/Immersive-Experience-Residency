@@ -1,0 +1,335 @@
+@font-face {
+font-family: 'MilkyBoba';
+src: url('../fonts/Milky-Boba.ttf') format('truetype');
+}
+
+/* ================= BASIS ================= */
+
+* {
+box-sizing: border-box;
+}
+
+html {
+font-size: 16px;
+}
+
+body {
+font-family: 'MilkyBoba';
+margin: 0;
+padding: 0;
+
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+
+background-image: url('../images/Background_quiz_v2.png');
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+overflow: hidden;
+}
+
+/* ================= VIDEO BACKGROUND ================= */
+
+#myVideo {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+z-index: -1;
+}
+
+/* ================= HOME / SCORE ================= */
+
+.header,
+.score {
+background-image: url('../images/startButton.png');
+background-size: contain;
+background-position: center;
+background-repeat: no-repeat;
+
+width: 100%;
+min-height: 60vh;
+
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+
+animation: swing 5s linear infinite alternate;
+}
+
+.text {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.text h1 {
+font-size: 2.2rem;
+}
+
+.text p {
+font-size: 1.3rem;
+}
+
+/* ================= START BUTTON ================= */
+
+.button {
+background-color: transparent;
+font-size: 2.5rem;
+border: none;
+cursor: pointer;
+font-family: "MilkyBoba";
+text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+
+animation: pulse 2s infinite ease-in-out;
+transition: 0.3s;
+}
+
+.button:hover {
+transform: scale(1.15);
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes pulse {
+0% { transform: scale(1); }
+50% { transform: scale(1.1); }
+100% { transform: scale(1); }
+}
+
+@keyframes swing {
+0% { transform: rotate(0deg); }
+50% { transform: rotate(5deg); }
+100% { transform: rotate(-5deg); }
+}
+
+/* ================= QUIZ BALK ================= */
+
+.balk {
+background-image: url('../images/Loadingbar_v2.png');
+
+width: 1400px;
+height: 110px;
+
+margin: 30px auto;
+
+background-size: 110%;
+background-position: center;
+background-repeat: no-repeat;
+
+display: flex;
+align-items: center;
+justify-content: center;
+position: relative;
+}
+
+.timer {
+position: absolute;
+right: 40px;
+font-size: 2.5rem;
+}
+
+.vraag-teller {
+position: absolute;
+left: 40px;
+font-size: 1.6rem;
+}
+
+.vraag {
+text-align: center;
+font-size: 1.8rem;
+}
+
+/* ================= QUIZ LAYOUT ================= */
+
+.container {
+flex: 1;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 6vw;
+}
+
+.kolom {
+display: flex;
+flex-direction: column;
+gap: 3vw;
+}
+
+/* ================= ANTWOORD KAARTEN ================= */
+
+.antwoord {
+width: 40vw;
+height: 20vw;
+
+max-width: 700px;
+max-height: 350px;
+
+min-width: 250px;
+min-height: 140px;
+
+display: flex;
+justify-content: center;
+align-items: center;
+
+text-align: center;
+padding: 30px 40px;
+
+font-size: 1.4rem;
+
+overflow: hidden;
+
+word-wrap: break-word;
+overflow-wrap: break-word;
+word-break: break-word;
+
+line-height: 1.3;
+
+transition: transform 0.3s;
+}
+
+.antwoord:hover {
+transform: scale(1.05);
+}
+
+#antwoordA {
+background-image: url('../images/card_Red.png');
+background-size: 150%;
+background-position: center;
+background-repeat: no-repeat;
+}
+
+#antwoordB {
+background-image: url('../images/card_Blue.png');
+background-size: 150%;
+background-position: center;
+background-repeat: no-repeat;
+}
+
+#antwoordC {
+background-image: url('../images/card_Green.png');
+background-size: 150%;
+background-position: center;
+background-repeat: no-repeat;
+}
+
+#antwoordD {
+background-image: url('../images/card_Pink.png');
+background-size: 150%;
+background-position: center;
+background-repeat: no-repeat;
+}
+
+/* ================= CREDITS ================= */
+
+.credits {
+position: fixed;
+bottom: 20px;
+right: 20px;
+
+width: 40vw;
+max-width: 800px;
+min-width: 260px;
+
+height: 110px;
+
+background-image: url('../images/creditbar.png');
+background-size: 100%;
+background-position: center;
+background-repeat: no-repeat;
+
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.credits h3 {
+margin: 0;
+font-size: 1.2rem;
+}
+
+/* ================= VIDEO CONTENT ================= */
+
+.content {
+position: fixed;
+top: 45%;
+left: 50%;
+transform: translateX(-50%);
+
+display: flex;
+flex-direction: column;
+align-items: center;
+
+width: 90%;
+max-width: 900px;
+
+color: white;
+text-align: center;
+}
+
+/* ================= LAPTOP ================= */
+
+@media (max-width: 1440px) {
+
+.container {
+gap: 4vw;
+}
+
+.kolom {
+gap: 2vw;
+}
+
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 1024px) {
+
+.container {
+flex-direction: column;
+gap: 30px;
+}
+
+.antwoord {
+width: 80vw;
+height: 25vw;
+}
+
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+
+.balk {
+height: 80px;
+}
+
+.timer {
+right: 20px;
+font-size: 2rem;
+}
+
+.vraag-teller {
+left: 20px;
+font-size: 1.4rem;
+}
+
+.vraag {
+font-size: 1.5rem;
+}
+
+.antwoord {
+font-size: 1.2rem;
+}
+
+.credits {
+width: 80vw;
+height: 80px;
+}
+
+}
